@@ -22,25 +22,27 @@ public class Main {
 		Libro[] lArr = new Libro[bookNumber];
 		
 		while (index < bookNumber - 1) {
+			
 			index ++;
 			
+			System.out.println("Qual è il titolo? (Non si accetta un campo vuoto)");
+			String title = sc.nextLine();
+			System.out.println("Qual è il numero di pagine? (>0)");
+			int pageNumber = sc.nextInt();
+			sc.nextLine();
+			System.out.println("Chi è l'autore?");
+			String author = sc.nextLine();
+			System.out.println("Chi è l'editore?");
+			String editor = sc.nextLine();
+			
 			try {
-				
-				System.out.println("Qual è il titolo? (Non si accetta un campo vuoto)");
-				String title = sc.nextLine();
-				System.out.println("Qual è il numero di pagine? (>0)");
-				int pageNumber = sc.nextInt();
-				sc.nextLine();
-				System.out.println("Chi è l'autore?");
-				String author = sc.nextLine();
-				System.out.println("Chi è l'editore?");
-				String editor = sc.nextLine();
 				
 				Libro l = new Libro(title, pageNumber, author, editor);
 				
 				lArr[index] = l;
-			} catch (Exception e){
 				
+			} catch (Exception e){
+				index --;
 				System.err.println("Errore: \n" + e.getMessage());
 			}
 			
